@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core'
+import {Menu, menu} from './cheeses'
+// import {Menu, menu} from './pastas-1-interface'
+// import {Menu, menu} from './pastas-2-type'
+// import {Menu, menu} from './pastas-3-sauces'
+// import {Menu, menu} from './pastas-4-farfalle'
+// import {Menu, menu} from './x-cheese-prices-via-map'
+// import {Menu, menu} from './x-pastas-classes'
+// import {Menu, menu} from './x-prices-in-interfaces'
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
+
+export class AppComponent  {
+  menu: Menu = menu
 }
