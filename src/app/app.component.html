@@ -9,7 +9,7 @@
             color: #00333d;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 115%;
-            line-height: 
+            line-height:
         }
 
         main {
@@ -62,12 +62,12 @@
         <ul>
             <li *ngFor="let cheese of menu.cheeses">{{cheese}}</li>
         </ul>
-        <h3 *ngIf="menu.pastas">Pastas:</h3>
-        <ul *ngIf="menu.pastas">
+        <h3 *ngIf="menu.pastas && menu.pastas.length">Pastas:</h3>
+        <ul *ngIf="menu.pastas && menu.pastas.length">
             <li *ngFor="let pasta of menu.pastas">{{pasta}}</li>
         </ul>
-        <h3 *ngIf="menu.sauces">Sauces:</h3>
-        <ul *ngIf="menu.sauces">
+        <h3 *ngIf="menu.sauces && menu.sauces.length">Sauces:</h3>
+        <ul *ngIf="menu.sauces && menu.sauces.length">
             <li *ngFor="let sause of menu.sauces">{{sause}}</li>
         </ul>
     </main>

@@ -49,21 +49,16 @@ export const pastaWithCheesePrice = (pasta: Pasta): number => {
   // const _exhaustiveCheck: never = pasta;
 }
 
-export interface Menu {
-  cheeses: string[]
-  pastas: string[]
-}
-
 const pastasOnMenu: Pasta[] = [
   {name: PastaName.Spaghetti},
   {name: PastaName.Linguini},
   {name: PastaName.Tortellini, cheese: Cheese.Parmesean},
   {name: PastaName.Tortellini, cheese: Cheese.Toscano},
-  {name: PastaName.Ravioli, cheese: Cheese.Toscano},
+  {name: PastaName.Ravioli, cheese: Cheese.Toscano}, // Try removing the cheese now!
   {name: PastaName.Shells, cheese: Cheese.Ricotta},
 ]
 
-export const menu: Menu = {
+export const menu = {
   cheeses: cheeseMenu.cheeses,
   pastas: pastasOnMenu.map(menuItem(pastaWithCheesePrice))
 }

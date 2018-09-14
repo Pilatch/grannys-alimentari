@@ -5,10 +5,6 @@ interface Cheese {
   price: number
 }
 
-export interface Menu {
-  cheeses: string[]
-}
-
 enum CheeseName {
   Provolone = 'Provolone',
   Mozzarella = 'Mozzarella',
@@ -21,7 +17,7 @@ enum CheeseName {
 // The menu changes often because her gourmet suppliers have limited supply,
 // but the price rarely changes.
 // Furthermore, how do we determine the price of pastas filled with cheeses?
-export const menu: Menu = {
+export const menu = {
   cheeses: [
     {name: CheeseName.Mozzarella, price: 5.69 },
     {name: CheeseName.Parmesean, price: 4.79 },

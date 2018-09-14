@@ -3,6 +3,8 @@ import {menuItem} from './menuItem'
 // Introduce enums.
 // Explain why we provide strings.
 // Introduce type annotations, like on the cheesePrice function.
+// What would happen if we had `default: return 1.11` in cheesePrice,
+// and introduced a new cheese, `Romano = 'Romano',` to the enum?
 
 // Why don't we just do this?
 // export enum Cheese {
@@ -24,7 +26,7 @@ export enum Cheese {
 export function cheesePrice(cheese: Cheese): number {
   switch (cheese) {
     // Comment out one of the lines below and see what the compiler does.
-    // If the "strictNullChecks" compiler option were enabled, we'd see a compile-time error.
+    // If the "strictNullChecks" compiler option is enabled, we see a compile-time error.
     case Cheese.Provolone: return 6.79
     case Cheese.Mozzarella: return 5.69
     case Cheese.Parmesean: return 4.79
@@ -33,16 +35,13 @@ export function cheesePrice(cheese: Cheese): number {
   }
 }
 
-export interface Menu {
-  cheeses: string[]
-}
-
-export const menu: Menu = {
+export const menu = {
   cheeses: [
     Cheese.Mozzarella,
     Cheese.Parmesean,
     Cheese.Ricotta,
     Cheese.Toscano,
   ].map(menuItem(cheesePrice)),
+  pastas: [],
 }
 

@@ -3,7 +3,11 @@ import {menuItem} from './menuItem'
 
 // Talk about the Pasta interface, and how it helps us model our domain,
 // and act as documentation.
+// Explain the question mark in the annotation.
 // Explain the cheeseless-ravioli problem.
+// Lead up to algebraic data types, and how TypeScript documentation
+// references functional programming.
+// https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
 
 enum PastaName {
   Spaghetti = 'Spaghetti',
@@ -36,7 +40,7 @@ export function pastaPrice(pasta: Pasta): number {
 
 function maybeCheesePrice(cheese?: Cheese): number {
   // We have to do this here if we want exhaustive checking,
-  // and want a function that supports passing undefined.
+  // and want this function to support passing `undefined`.
   if (!cheese) {
     return 0
   }
@@ -49,18 +53,12 @@ export function pastaWithCheesePrice(pasta: Pasta): number {
   return pastaPrice(pasta) + maybeCheesePrice(pasta.cheese)
 }
 
-export interface Menu {
-  cheeses: string[]
-  pastas: string[]
-}
-
 // We have a potential problem.
 // A user could add ravioli to the menu, but forget to associate a cheese with it.
 // Then we'd have an impossible scenario where we're advertising ravioli at the wrong price
 // and ravioli, by definition, must be stuffed with something.
 // This is where Algebraic Data Types are useful in realistic modeling, while preventing bugs.
-// https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
-export const menu: Menu = {
+export const menu = {
   cheeses: cheeseMenu.cheeses,
   pastas: [
     {name: PastaName.Spaghetti},

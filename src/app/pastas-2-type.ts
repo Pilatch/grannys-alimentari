@@ -1,8 +1,9 @@
 import {Cheese, cheesePrice, menu as cheeseMenu} from './cheeses'
 import {menuItem} from './menuItem'
 
-// Talk about how not every pasta is stuffed with cheese,
-// and how we can model that.
+// Show how we can model only certain pastas being stuffed with cheese.
+// Notice the NAN in the pasta menu.
+// How do we shift this from a run-time check to a compile-time one?
 
 enum PastaName {
   Spaghetti = 'Spaghetti',
@@ -13,8 +14,10 @@ enum PastaName {
   Shells = 'Shells',
 }
 
-// Here we're defining interfaces with literal values and types.
+// Here we're defining interfaces with both literal values and types.
 // "name" is the discriminant.
+// If we try to define Spaghetti with "nom" instead of "name",
+// We'll get a problem once we try to use it.
 interface Spaghetti { name: PastaName.Spaghetti }
 interface Rigatoni { name: PastaName.Rigatoni }
 interface Linguini { name: PastaName.Linguini }
@@ -42,19 +45,13 @@ export const pastaWithCheesePrice = (pasta: Pasta): number => {
   }
 }
 
-export interface Menu {
-  cheeses: string[]
-  pastas: string[]
-}
-
-export const menu: Menu = {
+export const menu = {
   cheeses: cheeseMenu.cheeses,
   pastas: [
     {name: PastaName.Spaghetti},
     {name: PastaName.Linguini},
     {name: PastaName.Tortellini, cheese: Cheese.Parmesean},
     {name: PastaName.Tortellini, cheese: Cheese.Toscano},
-    {name: PastaName.Ravioli, cheese: Cheese.Toscano},
     {name: PastaName.Ravioli}, // Why does this compile???
     {name: PastaName.Shells, cheese: Cheese.Ricotta},
   ].map(menuItem(pastaWithCheesePrice))

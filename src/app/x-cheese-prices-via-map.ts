@@ -8,10 +8,6 @@ export enum Cheese {
   Toscano = 'Toscano',
 }
 
-export interface Menu {
-  cheeses: string[]
-}
-
 // We don't care about "name" because we're just describing object keys.
 // So in some TypeScript annotations in the wild, you'll instead see that line
 // written with an underscore, like so `[_: string]: number`
@@ -35,7 +31,7 @@ function cheesePrice(cheese: Cheese): number {
   return cheesePrices[cheese]
 }
 
-export const menu: Menu = {
+export const menu = {
   cheeses: [
     Cheese.Mozzarella,
     Cheese.Parmesean,

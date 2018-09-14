@@ -55,12 +55,7 @@ export const pastaPrice = (pasta: Pasta): number => {
   }
 }
 
-export interface Menu {
-  cheeses: string[]
-  pastas: string[]
-}
-
-export const menu: Menu = {
+export const menu = {
   cheeses: cheeseMenu.cheeses,
   pastas: [
     new Pasta(PastaName.Spaghetti),
