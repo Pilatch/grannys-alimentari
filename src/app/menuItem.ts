@@ -1,6 +1,7 @@
 // Introduce a generic.
 // Talk about how we normally just see `T` instead of something concrete like `Food`.
 // Talk about how <Food> introduces a type that's scoped to the menuItem function.
+// Look at cheesePrice as a Pricer implementation.
 
 // You could do it this way too, but the linter might yell at you.
 // interface Pricer<Food> {

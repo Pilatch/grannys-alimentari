@@ -4,7 +4,8 @@ import {menuItem} from './menuItem'
 // Talk about the Pasta interface, and how it helps us model our domain,
 // and act as documentation.
 // Explain the question mark in the annotation.
-// Explain the cheeseless-ravioli problem.
+// Explain the cheeseless-ravioli problem,
+// and how that affects potential use the (naked) pastaPrice function.
 // Lead up to algebraic data types, and how TypeScript documentation
 // references functional programming.
 // https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
