@@ -5,6 +5,7 @@ import {menuItem} from './menuItem'
 // Un-commenting the line for Farfalle in the PastaName enum doesn't
 // do much for us on its own.
 // Instead let's try the opposite. Add it to the menu first, the work your way backwards!
+// If time allows, ask how we would model a pasta being stuffed with a combination of cheeses.
 
 enum PastaName {
   Spaghetti = 'Spaghetti',

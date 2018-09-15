@@ -1,6 +1,6 @@
 # Granny's Alimentari
 
-A way to test out some features of TypeScript, and compare some of them to Elm.
+A way to test out some features of TypeScript, and compare them to Elm.
 
 ## Try in your browser
 
