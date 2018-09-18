@@ -45,7 +45,8 @@ export const pastaWithCheesePrice = (pasta: Pasta): number => {
 
   // https://basarat.gitbooks.io/typescript/docs/types/discriminated-unions.html
   // If your compiler or linter isn't checking for unused variables, you can do an exhaustiveness check manually.
-  // However this won't be necessary if you have strictNullChecks enabled.
+  // However this won't be necessary if you have strictNullChecks enabled, and your function is pure.
+  // If your switch has side-effects in its cases, then this technique becomes more useful.
   // const _exhaustiveCheck: never = pasta;
 }
 
