@@ -2,8 +2,9 @@ import {Cheese, cheesePrice, menu as cheeseMenu} from './cheeses'
 import {menuItem} from './menuItem'
 
 // Show how we can model only certain pastas being stuffed with cheese.
-// Notice the NAN in the pasta menu.
+// Notice the NAN in the pasta menu in your browser.
 // How do we shift this from a run-time check to a compile-time one?
+// Talk about how an array is not type-limited unless you annotate it.
 
 enum PastaName {
   Spaghetti = 'Spaghetti',
@@ -14,8 +15,8 @@ enum PastaName {
   Shells = 'Shells',
 }
 
-// Here we're defining interfaces with both literal values and types.
-// "name" is the discriminant.
+// Here we're defining interfaces with both types and literal values.
+// "name" is the discriminant, and assigned a string literal for each Pasta.
 // If we try to define Spaghetti with "nom" instead of "name",
 // We'll get a problem once we try to use it.
 interface Spaghetti { name: PastaName.Spaghetti }
@@ -52,7 +53,7 @@ export const menu = {
     {name: PastaName.Linguini},
     {name: PastaName.Tortellini, cheese: Cheese.Parmesean},
     {name: PastaName.Tortellini, cheese: Cheese.Toscano},
-    {name: PastaName.Ravioli}, // Why does this compile???
+    {name: PastaName.Ravioli}, // Why does this compile...?
     {name: PastaName.Shells, cheese: Cheese.Ricotta},
   ].map(menuItem(pastaWithCheesePrice))
 }
