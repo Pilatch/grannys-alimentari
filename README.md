@@ -24,7 +24,7 @@ After discussing how that file works, we can edit `app.component.ts` to comment 
 
 Before showing how TypeScript handles discriminated unions, we'll look at how a functional langague like Elm handles them to better understand the data structures TypeScript is emulating.
 
-We proceed in this manner to discuss topics in the following `pastas-` prefixed files, then finally the `sauces.ts` file. To explore other concepts the `x-` prefixed TypeScript files are provided for un-guided experimentation.
+We proceed in this manner to discuss topics in the following `pastas-` prefixed files. To explore other concepts the `x-` prefixed TypeScript files are provided for un-guided experimentation.
 
 ### Guidance
 
