@@ -56,4 +56,7 @@ export const menu = {
     {name: PastaName.Ravioli}, // Why does this compile...?
     {name: PastaName.Shells, cheese: Cheese.Ricotta},
   ].map(menuItem(pastaWithCheesePrice))
+  // ... it compiles because TypeScript does not infer that this is meant to be a list of Pastas,
+  // AND because it does not require that an array only hold items of the same type.
+  // We'll come back to this later.
 }

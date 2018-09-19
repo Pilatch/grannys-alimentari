@@ -58,7 +58,10 @@ export function pastaWithCheesePrice(pasta: Pasta): number {
 // A user could add ravioli to the menu, but forget to associate a cheese with it.
 // Then we'd have an impossible scenario where we're advertising ravioli at the wrong price
 // and ravioli, by definition, must be stuffed with something.
+// Remember Granny's requirement that changing the menu should be easy.
 // This is where Algebraic Data Types are useful in realistic modeling, while preventing bugs.
+// Introduce this topic with the Elm project, as that has simpler syntax for what it now calls
+// "Custom Types", then move back to pastas-2-type.ts.
 export const menu = {
   cheeses: cheeseMenu.cheeses,
   pastas: [
@@ -67,5 +70,5 @@ export const menu = {
     {name: PastaName.Tortellini, cheese: Cheese.Parmesean},
     {name: PastaName.Ravioli},
     {name: PastaName.Shells, cheese: Cheese.Ricotta},
-  ].map(menuItem(pastaWithCheesePrice))
+  ].map(menuItem(pastaWithCheesePrice)) // Try swapping cheesePrice in here to see how the generic helps.
 }
