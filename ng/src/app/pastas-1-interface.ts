@@ -28,6 +28,7 @@ interface Pasta {
 // we could add another PastaName, 'Farfalle', and this would compile.
 // Problem: we have a function that lends credability to the idea that we could
 // sell pastas like ravioli or tortellini without a filling.
+// Instead, developers should be using the `pastaWithCheesePrice` function.
 export function pastaPrice(pasta: Pasta): number {
   switch (pasta.name) {
     case PastaName.Spaghetti: return 2

@@ -17,6 +17,8 @@ enum Sauce {
 
 // This is just for the LOLs.
 // I'm not suggesting you do it.
+// It's an interesting experiment though because custom types in Elm are constructors.
+// So can we make constructors in Typescript for similar type safety and compiler protection?
 
 class Pasta {
   constructor(public name: PastaName) {}

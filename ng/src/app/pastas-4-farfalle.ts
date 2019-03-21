@@ -28,13 +28,6 @@ interface Shells { name: PastaName.Shells, cheese: Cheese }
 type Pasta = Spaghetti | Rigatoni | Linguini | Ravioli | Tortellini | Shells // | Farfalle
 
 export const pastaWithCheesePrice = (pasta: Pasta): number => {
-  // When we try to enforce that we're matching against each PastaName,
-  // the compiler will complain about "cheese" not being on type Pasta, nor Spaghetti.
-  // const pastaName: PastaName = pasta.name
-  // switch (pastaName) {
-  // Same with...
-  // switch (pasta.name as PastaName) {
-
   switch (pasta.name) {
     case PastaName.Spaghetti: return 2
     case PastaName.Rigatoni: return 1.89
@@ -42,6 +35,9 @@ export const pastaWithCheesePrice = (pasta: Pasta): number => {
     case PastaName.Ravioli: return 1.75 + cheesePrice(pasta.cheese)
     case PastaName.Tortellini: return 2.25 + cheesePrice(pasta.cheese)
     case PastaName.Shells: return 1.75 + cheesePrice(pasta.cheese)
+    // Try un-commenting everything except the following line.
+    // What do you expect to happen?
+    // Why did we get a runtime error?
     // case PastaName.Farfalle: return 1.29
   }
 }

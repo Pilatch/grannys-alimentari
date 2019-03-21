@@ -3,11 +3,13 @@ import {Sauce, saucePrice} from './sauces'
 import {menuItem} from './menuItem'
 
 // Explain how we can solve the cheeseless-ravioli problem by annotating the
-// pasta menu.
+// pasta menu with `Pasta[]`
 // Explore what happens when Granny wants to start selling Linguini with Marinara,
 // and Tortellini with Pesto.
 // Explore the difference in how the compiler helps you
 // between adding a feature and deleting one!
+// This is an important distinction for people coming from functional languages,
+// because they might expect TypeScript to behave in a way it does not.
 
 enum PastaName {
   Spaghetti = 'Spaghetti',

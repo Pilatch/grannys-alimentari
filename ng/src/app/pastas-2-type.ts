@@ -29,14 +29,9 @@ interface Shells { name: PastaName.Shells, cheese: Cheese }
 type Pasta = Spaghetti | Rigatoni | Linguini | Ravioli | Tortellini | Shells
 
 export const pastaWithCheesePrice = (pasta: Pasta): number => {
-  // When we try to be explicit that we're matching against each PastaName,
-  // the compiler will complain about "cheese" not being on type Pasta, nor Spaghetti.
-  // const pastaName: PastaName = pasta.name
-  // switch (pastaName) {
-  // Same with...
-  // switch (pasta.name as PastaName) {
-
   switch (pasta.name) {
+    // Will it compile when we un-comment the following line?
+    // case 'foo': return -3.99
     case PastaName.Spaghetti: return 2
     case PastaName.Rigatoni: return 1.89
     case PastaName.Linguini: return 1.6

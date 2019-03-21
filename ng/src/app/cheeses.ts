@@ -7,6 +7,7 @@ import {menuItem} from './menuItem'
 // and introduced a new cheese, `Romano = 'Romano',` to the enum?
 
 // Why don't we just do this?
+// Because enums default to a series of integers, starting at 1.
 // export enum Cheese {
 //   Provolone,
 //   Mozzarella,
@@ -27,11 +28,14 @@ export function cheesePrice(cheese: Cheese): number {
   switch (cheese) {
     // Comment out one of the lines below and see what the compiler does.
     // If the "strictNullChecks" compiler option is enabled, we see a compile-time error.
+    // However, if the default weren't commented out then we'd probably have a bug
+    // where a cheese was incorrectly priced.
     case Cheese.Provolone: return 6.79
     case Cheese.Mozzarella: return 5.69
     case Cheese.Parmesean: return 4.79
     case Cheese.Ricotta: return 2.89
     case Cheese.Toscano: return 5.25
+    // default: return 1.11
   }
 }
 
