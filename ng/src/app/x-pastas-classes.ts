@@ -63,6 +63,8 @@ export const pastaPrice = (pasta: Pasta): number => {
   }
 }
 
+// What happens if we want to start selling spaghetti with marinara?
+
 const pastasOnMenu: Pasta[] = [
   new PlainPasta(PastaName.Spaghetti),
   new PlainPasta(PastaName.Linguini),
