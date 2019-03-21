@@ -1,5 +1,6 @@
 import {Cheese, cheesePrice, menu as cheeseMenu} from './cheeses'
 import {menuItem} from './menuItem'
+import {saucePrice, Sauce} from './sauces'
 
 enum PastaName {
   Spaghetti = 'Spaghetti',
@@ -10,23 +11,18 @@ enum PastaName {
   Shells = 'Shells',
 }
 
-enum Sauce {
-  Marinara = 'Marinara',
-  Pesto = 'Pesto',
-}
-
 // This is just for the LOLs.
-// I'm not suggesting you do it.
+// I'm not suggesting you do it. But maybe...?
 // It's an interesting experiment though because custom types in Elm are constructors.
 // So can we make constructors in Typescript for similar type safety and compiler protection?
 
-class Pasta {
+class PlainPasta {
   constructor(public name: PastaName) {}
 }
 
 // In TypeScript you can add "public" before a parameter name in the constructor,
 // and the compiler knows that you'll be adding that parameter as a member of the instantiated object.
-class PastaWithCheese extends Pasta {
+class PastaWithCheese extends PlainPasta {
   constructor(public name: PastaName, public cheese: Cheese) {
     super(name)
   }
@@ -38,7 +34,17 @@ class PastaWithCheeseAndSauce extends PastaWithCheese {
   }
 }
 
-export const pastaWithCheesePrice = (pasta: Pasta | PastaWithCheese): number => {
+type Pasta = PlainPasta | PastaWithCheese | PastaWithCheeseAndSauce
+
+export const pastaWithCheeseAndSaucePrice = (pasta: Pasta): number => {
+  if (pasta instanceof PastaWithCheeseAndSauce) {
+    return pastaWithCheesePrice(pasta) + saucePrice(pasta.sauce)
+  }
+
+  return pastaWithCheesePrice(pasta)
+}
+
+export const pastaWithCheesePrice = (pasta: Pasta): number => {
   if (pasta instanceof PastaWithCheese) {
     return pastaPrice(pasta) + cheesePrice(pasta.cheese)
   }
@@ -57,14 +63,17 @@ export const pastaPrice = (pasta: Pasta): number => {
   }
 }
 
+const pastasOnMenu: Pasta[] = [
+  new PlainPasta(PastaName.Spaghetti),
+  new PlainPasta(PastaName.Linguini),
+  new PastaWithCheese(PastaName.Tortellini, Cheese.Parmesean),
+  new PastaWithCheese(PastaName.Tortellini, Cheese.Toscano),
+  new PastaWithCheese(PastaName.Ravioli, Cheese.Toscano),
+  new PastaWithCheese(PastaName.Shells, Cheese.Ricotta),
+  new PastaWithCheeseAndSauce(PastaName.Ravioli, Cheese.Ricotta, Sauce.Marinara),
+]
+
 export const menu = {
   cheeses: cheeseMenu.cheeses,
-  pastas: [
-    new Pasta(PastaName.Spaghetti),
-    new Pasta(PastaName.Linguini),
-    new PastaWithCheese(PastaName.Tortellini, Cheese.Parmesean),
-    new PastaWithCheese(PastaName.Tortellini, Cheese.Toscano),
-    new PastaWithCheese(PastaName.Ravioli, Cheese.Toscano),
-    new PastaWithCheese(PastaName.Shells, Cheese.Ricotta),
-  ].map(menuItem(pastaWithCheesePrice))
+  pastas: pastasOnMenu.map(menuItem(pastaWithCheeseAndSaucePrice))
 }
