@@ -58,7 +58,7 @@ Why does this thing exist, when there's tons of documancy on TypeScript out ther
 
 - Because a concrete use-case is easy to reason about.
 - Because Elm's sound type system and pattern matching provide a contrast against TypeScript's unsound type system, and shows how bugs can sneak into your code.
-- Because presenting this as a lunch 'n learn might encourage developers at [Penn Mutual](http://www2.pennmutual.com/) to adopt TypeScript and/or Elm.
+- Because presenting this might encourage developers to adopt TypeScript and/or Elm.
 
 ## Special Thanks
 
