@@ -39,6 +39,15 @@ export function cheesePrice(cheese: Cheese): number {
   }
 }
 
+// Why not do it this way instead?
+// Just provide a map of the cheese names to prices.
+// What's the difference in how the compiler helps us?
+export const cheesePrices = {
+  [Cheese.Provolone]: 6.79,
+  [Cheese.Mozzarella]: 5.69,
+  // ...
+}
+
 export const menu = {
   cheeses: [
     Cheese.Mozzarella,

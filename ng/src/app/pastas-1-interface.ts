@@ -5,7 +5,7 @@ import {menuItem} from './menuItem'
 // and act as documentation.
 // Explain the question mark in the annotation.
 // Explain the cheeseless-ravioli problem,
-// and how that affects potential use the (naked) pastaPrice function.
+// and how that affects potential use of the (naked) pastaPrice function.
 // Lead up to algebraic data types, and how TypeScript documentation
 // references functional programming.
 // https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
@@ -29,6 +29,7 @@ interface Pasta {
 // Problem: we have a function that lends credability to the idea that we could
 // sell pastas like ravioli or tortellini without a filling.
 // Instead, developers should be using the `pastaWithCheesePrice` function.
+// Talk about how evil a default statement would be, regarding another name of pasta being added.
 export function pastaPrice(pasta: Pasta): number {
   switch (pasta.name) {
     case PastaName.Spaghetti: return 2

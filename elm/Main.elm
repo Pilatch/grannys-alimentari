@@ -1,10 +1,9 @@
 module Main exposing (main)
 
-import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import List
-import Round exposing (round)
+import Round
 import String.Interpolate exposing (interpolate)
 
 
@@ -112,7 +111,7 @@ foodListItem : (food -> Float) -> food -> Html msg
 foodListItem pricer food =
     let
         foodPricePerPound =
-            round 2 <| pricer food
+            Round.round 2 <| pricer food
 
         foodName =
             Debug.toString food
@@ -132,7 +131,7 @@ pastaPriceList =
         menu.pastas
 
 
-view _ =
+main =
     main_ []
         [ node "style" [] [ text styleText ]
         , h1 [] [ text "Granny's Alimentari" ]
@@ -196,11 +195,3 @@ styleText =
             margin: .5em 0;
         }
 """
-
-
-main =
-    Browser.sandbox
-        { init = Nothing
-        , view = view
-        , update = \_ model -> model
-        }
